@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs
+dist/
+build/
+*.wasm
+*.js.mem
+
+# Native build artifacts
+native/
+
+# Generated files
+*.d.ts
+WebassemblyTemplate.js
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Coverage
+coverage/
+*.lcov

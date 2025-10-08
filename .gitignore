@@ -1,19 +1,113 @@
-CMakeLists.txt.user
-CMakeCache.txt
-CMakeFiles
-CMakeScripts
-Testing
-Makefile
-cmake_install.cmake
-install_manifest.txt
-compile_commands.json
-CTestTestfile.cmake
-_deps
-CMakeUserPresets.json
+# Build directories
+build/
+build_*/
+build-*/
+out/
+bin/
+lib/
+dist/
+debug/
+release/
 
-# CLion
-#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#cmake-build-*
+# Object / binary files
+*.o
+*.obj
+*.lo
+*.la
+*.al
+*.a
+*.lib
+*.dll
+*.so
+*.so.*
+*.dylib
+*.exe
+*.run
+*.out
+*.app
+
+# Debug / symbol info
+*.pdb
+*.idb
+*.dSYM/
+
+# Precompiled headers
+*.gch
+*.pch
+
+# Dependency / intermediate
+*.d
+*.mod
+*.smod
+*.tlog
+*.rsp
+
+# Coverage / profiling
+*.gcno
+*.gcda
+*.gcov
+*.profraw
+*.profdata
+*.cachegrind
+*.callgrind
+*.coverage
+
+# Sanitizer logs
+asan.*
+tsan.*
+lsan.*
+ubsan.*
+
+# Generated config
+config.h
+config.hpp
+
+# IDE / tool metadata
+.vscode/
+.vs/
+.idea/
+*.iml
+
+# Temporary files
+*.log
+*.tmp
+*.swp
+*~
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnp*
+.pnpm-store/
+
+# build output
+dist/
+build/
+lib/
+.parcel-cache/
+
+# coverage
+coverage/
+.nyc_output/
+
+# runtime logs
+logs/
+*.log
+
+# environment files
+.env
+.env.*.local
+
+# caches
+.cache/
+.cache-loader/
+
+# common framework build dirs (optional)
+.next/
+.nuxt/
+
+# MacOS
+.DS_Store

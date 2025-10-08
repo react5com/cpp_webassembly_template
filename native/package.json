@@ -1,0 +1,22 @@
+{
+  "name": "@cpp_webassembly_template/nlplib",
+  "version": "0.1.0",
+  "description": "A sample C++ NLP library compiled to WebAssembly",
+  "main": "build_wasm/WebassemblyTemplate.js",
+  "types": "build_wasm/WebassemblyTemplate.d.ts",
+  "module": "build_wasm/WebassemblyTemplate.js",
+  "private": true,
+  "files": [
+    "build_wasm/WebassemblyTemplate.js",
+    "build_wasm/WebassemblyTemplate.d.ts",
+    "build_wasm/WebassemblyTemplate.wasm"
+  ],
+  "scripts": {
+    "build": "bash build_wasm.sh",
+    "build:windows": "build_wasm.bat",
+    "lint": "cd build && cmake --build . --target lint",
+    "format": "cd build && cmake --build . --target format",
+    "test": "cd build && ctest --output-on-failure",
+    "cmake:native": "cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+  }
+}

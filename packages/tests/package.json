@@ -1,0 +1,20 @@
+{
+  "name": "@cpp_webassembly_template/tests",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "tsc": "tsc --noEmit",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@cpp_webassembly_template/nlplib": "*"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0",
+    "@swc/core": "^1.13.5",
+    "@swc/jest": "^0.2.39",
+    "@types/jest": "^30.0.0"
+  }
+}
