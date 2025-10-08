@@ -1,12 +1,19 @@
 #!/bin/bash
-set -euo pipefail
+#set -euo pipefail
 
 BUILD_DIR=build_wasm
 mkdir -p "${BUILD_DIR}"
 cd "${BUILD_DIR}"
 
+EMSDK_DIR=~/emsdk
+if [ ! -d "${EMSDK_DIR}" ]; then
+    echo "Emscripten SDK not found in ${EMSDK_DIR}."
+    echo "Please install it by following the instructions at https://emscripten.org/docs/getting_started/downloads.html"
+    exit 1
+fi
+
 echo "Setting up Emscripten environment..."
-source ~/emsdk/emsdk_env.sh
+source ${EMSDK_DIR}/emsdk_env.sh
 
 echo "Building WebAssembly with Emscripten..."
 

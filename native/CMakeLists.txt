@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
-project(WebassemblyTemplate LANGUAGES C CXX)
+project(WebassemblyTemplate LANGUAGES CXX)
 # Set C++ standard to 20
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -85,5 +85,5 @@ if(EMSCRIPTEN)
       #"SHELL:-fsanitize=address"
   )
 
-  target_include_directories(WebassemblyTemplate PRIVATE "$ENV{HOME}/emsdk/upstream/emscripten/system/include")
+  target_include_directories(WebassemblyTemplate PRIVATE "$ENV{EMSDK_DIR}/upstream/emscripten/system/include")
 endif()

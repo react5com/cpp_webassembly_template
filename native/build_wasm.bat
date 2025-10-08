@@ -1,20 +1,31 @@
 @echo off
 setlocal enabledelayedexpansion
 
-set "BUILD_DIR=build_wasm"
+if not defined BUILD_DIR (
+    set "BUILD_DIR=build_wasm"
+)
 if not exist "%BUILD_DIR%" mkdir "%BUILD_DIR%"
 cd "%BUILD_DIR%"
 
-echo Setting up Emscripten environment...
-call %USERPROFILE%\emsdk\emsdk_env.bat
+if not defined EMSDK_DIR (
+    set "EMSDK_DIR=%USERPROFILE%\emsdk"
+)
+if not exist "%EMSDK_DIR%" (
+    echo "Emscripten SDK not found in %EMSDK_DIR%."
+    echo "Please install it by following the instructions at https://emscripten.org/docs/getting_started/downloads.html"
+    exit 1
+)
+
+echo "Setting up Emscripten environment..."
+call %EMSDK_DIR%\emsdk_env.bat
 
 echo Building WebAssembly with Emscripten...
 
 rem Configure with Emscripten toolchain
-emcmake cmake .. 
+call emcmake cmake .. 
 
 rem Build the project
-emmake cmake --build . > build_wasm.log 2>&1
+call emmake cmake --build . > build_wasm.log 2>&1
 
 rem Check for generated files
 if exist WebassemblyTemplate.js (

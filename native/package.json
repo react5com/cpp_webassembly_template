@@ -12,11 +12,14 @@
     "build_wasm/WebassemblyTemplate.wasm"
   ],
   "scripts": {
-    "build": "bash build_wasm.sh",
-    "build:windows": "build_wasm.bat",
+    "build": "node scripts/select-build.js",
+    "build:nix": "bash build_wasm.sh",
+    "build:win": "build_wasm.bat",
     "lint": "cd build && cmake --build . --target lint",
     "format": "cd build && cmake --build . --target format",
     "test": "cd build && ctest --output-on-failure",
     "cmake:native": "cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+  },
+  "devDependencies": {
   }
 }
