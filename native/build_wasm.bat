@@ -7,17 +7,17 @@ if not defined BUILD_DIR (
 if not exist "%BUILD_DIR%" mkdir "%BUILD_DIR%"
 cd "%BUILD_DIR%"
 
-if not defined EMSDK_DIR (
-    set "EMSDK_DIR=%USERPROFILE%\emsdk"
+if not defined EMSDK (
+    set "EMSDK=%USERPROFILE%\emsdk"
 )
-if not exist "%EMSDK_DIR%" (
-    echo "Emscripten SDK not found in %EMSDK_DIR%."
+if not exist "%EMSDK%" (
+    echo "Emscripten SDK not found in %EMSDK%."
     echo "Please install it by following the instructions at https://emscripten.org/docs/getting_started/downloads.html"
     exit 1
 )
 
 echo "Setting up Emscripten environment..."
-call %EMSDK_DIR%\emsdk_env.bat
+call %EMSDK%\emsdk_env.bat
 
 echo Building WebAssembly with Emscripten...
 

@@ -5,15 +5,15 @@ BUILD_DIR=build_wasm
 mkdir -p "${BUILD_DIR}"
 cd "${BUILD_DIR}"
 
-EMSDK_DIR=~/emsdk
-if [ ! -d "${EMSDK_DIR}" ]; then
-    echo "Emscripten SDK not found in ${EMSDK_DIR}."
+EMSDK=~/emsdk
+if [ ! -d "${EMSDK}" ]; then
+    echo "Emscripten SDK not found in ${EMSDK}."
     echo "Please install it by following the instructions at https://emscripten.org/docs/getting_started/downloads.html"
     exit 1
 fi
 
 echo "Setting up Emscripten environment..."
-source ${EMSDK_DIR}/emsdk_env.sh
+source ${EMSDK}/emsdk_env.sh
 
 echo "Building WebAssembly with Emscripten..."
 
