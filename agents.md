@@ -3,38 +3,52 @@
 This repository contains a sample code and a starter template to illustrate interoperability between C++/WebAssembly and TypeScript. It is structured as a monorepo.
 
 ## Do
+
 - Implement heavy computations and business logic in an appropriate C++ library or create new
 - For interfacing with TS code declare emscripten bindings in a corresponding .embind.cpp file
 - Minimize data exchange between C++ WebAssembly and TS
 
 ## Don't
+
 - Do not hard code colors
 
 ## Commands
-```
+
+```bash
 npm run tsc:sample --noEmit path/to/file.tsx
 npm run format:sample --write path/to/file.tsx
 npm run lint:sample --fix path/to/file.tsx
 npm run build:native
 npm run dev
 ```
+
 - tests
-```
+
+```bash
 npm run test
 ```
+
 - full build when explicitly requested
-```
+
+```bash
 npm run build
 ```
+
+## Code style
+
+- TypeScript strict mode
+- Use functional patterns where possible
 
 ## Safety and permissions
 
 Allowed without prompt:
+
 - read files, list files
 - single file prettier and eslint
 - tsc, build, test
 
 Ask first:
+
 - package installs
 - git push
 - deleting files, chmod

@@ -9,7 +9,7 @@ TEST_CASE("Tokenizer Test - Punctuation as Separate Token", "[Tokenizer]")
           std::vector<std::string>{"Hello", ",", "world", "!"});
 }
 
-TEST_CASE("Tokenizer Test - Punctuation Not Separate Token", "[Tokenizer]")
+TEST_CASE("Tokenizer Test - Punctuation No Separate Token", "[Tokenizer]")
 {
   Tokenizer tokenizer(false);
   REQUIRE(tokenizer.tokenize("Hello, world!") == std::vector<std::string>{"Hello", "world"});
