@@ -1,3 +1,5 @@
+#pragma once
+
 #ifdef __EMSCRIPTEN__
 #include "Tokenizer.hpp"
 #include <emscripten/bind.h>

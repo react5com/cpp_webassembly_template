@@ -60,7 +60,8 @@ add_custom_target(static_analysis
 # Emscripten-specific configuration
 if(EMSCRIPTEN)
   add_executable(WebassemblyTemplate src/wasm_main.cpp)
-  target_link_libraries(WebassemblyTemplate PRIVATE -Wl,--whole-archive NlpLib -Wl,--no-whole-archive)
+  #target_link_libraries(WebassemblyTemplate PRIVATE -Wl,--whole-archive NlpLib -Wl,--no-whole-archive)
+  target_link_libraries(WebassemblyTemplate PRIVATE NlpLib)
 
   # Set output directory for web files
   set_target_properties(WebassemblyTemplate PROPERTIES

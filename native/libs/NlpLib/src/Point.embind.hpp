@@ -1,3 +1,5 @@
+#pragma once
+
 #ifdef __EMSCRIPTEN__
 #include "Point.hpp"
 #include <emscripten/bind.h>

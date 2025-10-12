@@ -23,8 +23,8 @@ target_sources(NlpLib
 if(EMSCRIPTEN)
     target_sources(NlpLib
       PRIVATE
-        Tokenizer.embind.cpp
-        Point.embind.cpp
+        Tokenizer.embind.hpp
+        Point.embind.hpp
     )
     target_compile_options(NlpLib PRIVATE
       #"SHELL:-fsanitize=address"

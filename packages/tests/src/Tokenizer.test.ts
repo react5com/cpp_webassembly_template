@@ -1,8 +1,12 @@
 import ModuleFactory, { type EmbindModule } from "@cpp_webassembly_template/nlplib";
 import { vectorToArray } from "./utils/converters";
 
-describe("Tokenizer Tests", async () => {
-  const Module = (await ModuleFactory()) as EmbindModule;
+describe("Tokenizer Tests", () => {
+  let Module: EmbindModule;
+
+  beforeAll(async () => {
+    Module = (await ModuleFactory()) as EmbindModule;
+  });
 
   test("Tokenizes a simple sentence", async () => {
     const text = "Hello, world! This is a test.";
