@@ -4,7 +4,7 @@ project(NlpLib LANGUAGES CXX)
 enable_testing()
 
 add_subdirectory(src)
-#if(!EMSCRIPTEN)
+#if(NOT EMSCRIPTEN)
     add_subdirectory(tests)
 #endif()
 
