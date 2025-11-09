@@ -3,15 +3,15 @@ cmake_minimum_required(VERSION 3.15)
 # Set the project name
 project(NlpLibTests)
 
-#find_package(Catch2 3 REQUIRED)
+find_package(Catch2 3 REQUIRED)
 # Add Catch2 as a dependency
-include(FetchContent)
-FetchContent_Declare(
-  Catch2
-  GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-  GIT_TAG v3.4.0 # Use the latest stable version
-)
-FetchContent_MakeAvailable(Catch2)
+# include(FetchContent)
+# FetchContent_Declare(
+#   Catch2
+#   GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+#   GIT_TAG v3.4.0 # Use the latest stable version
+# )
+# FetchContent_MakeAvailable(Catch2)
 
 # Enable testing
 enable_testing()

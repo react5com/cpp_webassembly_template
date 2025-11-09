@@ -69,22 +69,33 @@ if(EMSCRIPTEN)
       SUFFIX ".js"
   )
   
-  target_compile_options(WebassemblyTemplate PRIVATE
-      #"SHELL:-fsanitize=address"
-      #"SHELL:-fno-omit-frame-pointer"
-  )
+  if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    target_compile_options(WebassemblyTemplate PRIVATE
+        "SHELL:-fsanitize=address"
+        "SHELL:-fsanitize-blacklist=${CMAKE_SOURCE_DIR}/lsan_suppressions.txt"
+        #"SHELL:-fno-omit-frame-pointer"
+    )
+    target_link_options(WebassemblyTemplate PRIVATE
+        "SHELL:-fsanitize=address"
+    )
+  endif()
   # Emscripten-specific linker flags
   target_link_options(WebassemblyTemplate PRIVATE
-      "SHELL:-s WASM=1"
-      "SHELL:-l embind"
-      "SHELL:-s ALLOW_MEMORY_GROWTH=1"
-      "SHELL:-s MODULARIZE=1"
-      "SHELL:-s EXPORT_ES6=1"
-      "SHELL:--bind"
+      "SHELL:-sALLOW_MEMORY_GROWTH=1"
+      "SHELL:-sMODULARIZE=1"
+      "SHELL:-sEXPORT_ES6=1"
+      "SHELL:-lembind"
       "SHELL:--emit-tsd WebassemblyTemplate.d.ts"
-      #"SHELL:-s EXIT_RUNTIME=1"
-      #"SHELL:-fsanitize=address"
+      "SHELL:-sEXIT_RUNTIME=0"
+      "SHELL:-gsource-map"
+      "SHELL:-std=c++20"
+      "SHELL:-sEXPORTED_RUNTIME_METHODS='[\"ccall\"]'"
   )
+#   em++ ../src/main.cpp -o a.out.js -gsource-map -fsanitize=address \
+#   -sEXPORTED_RUNTIME_METHODS='["ccall","cwrap"]' \
+#   -sALLOW_MEMORY_GROWTH -sEXIT_RUNTIME=0 \
+#   --emit-tsd interface.d.ts -sMODULARIZE -sEXPORT_ES6 \
+#   -std=c++20 -lembind
 
   target_include_directories(WebassemblyTemplate PRIVATE "$ENV{EMSDK_DIR}/upstream/emscripten/system/include")
 endif()

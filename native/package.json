@@ -5,6 +5,7 @@
   "main": "build_wasm/WebassemblyTemplate.js",
   "types": "build_wasm/WebassemblyTemplate.d.ts",
   "module": "build_wasm/WebassemblyTemplate.js",
+  "type": "module",
   "private": true,
   "files": [
     "build_wasm/WebassemblyTemplate.js",
@@ -12,9 +13,14 @@
     "build_wasm/WebassemblyTemplate.wasm"
   ],
   "scripts": {
-    "build": "node scripts/select-build.js",
-    "build:nix": "bash build_wasm.sh",
-    "build:win": "build_wasm.bat",
+    "build": "npm run build:em && npm run build:native",
+    "build:em": "node scripts/select-build.js em",
+    "build:em:nix": "bash build_wasm.sh",
+    "build:em:win": "build_wasm.bat",
+    "build:native": "node scripts/select-build.js native",
+    "build:native:nix": "bash build.sh",
+    "build:native:win": "build.bat",
+    "debug": "node scripts/select-build.js em Debug && node scripts/select-build.js native Debug",
     "lint": "cd build && cmake --build . --target lint",
     "format": "cd build && cmake --build . --target format",
     "test": "cd build && ctest --output-on-failure",

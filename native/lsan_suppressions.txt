@@ -1,0 +1,2 @@
+leak:emscripten::internal::getContext
+leak:emscripten::internal::GetterPolicy
